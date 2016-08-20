@@ -8,6 +8,7 @@ package org.frikadelki.ash.telegram.api.base;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Getter;
+import org.frikadelki.ash.telegram.api.inlinemode.InlineQuery;
 import org.frikadelki.ash.telegram.api.message.TgmMessage;
 
 
@@ -19,6 +20,9 @@ public final class TgmUpdate {
 	@Getter private TgmMessage newMessage = null;
 	@SerializedName("edited_message")
 	@Getter private TgmMessage editedMessage = null;
+
+	@SerializedName("inline_query")
+	@Getter private InlineQuery inlineQuery = null;
 
 	/**
 	 * TODO
