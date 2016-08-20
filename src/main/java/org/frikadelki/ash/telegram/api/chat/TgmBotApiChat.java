@@ -9,7 +9,10 @@ package org.frikadelki.ash.telegram.api.chat;
 import com.google.gson.annotations.SerializedName;
 import lombok.Builder;
 import lombok.NonNull;
+import org.frikadelki.ash.telegram.api.inlinemode.InlineQueryResultCachedSticker;
 import org.frikadelki.ash.toolset.result.AshResultGist;
+
+import java.util.ArrayList;
 
 
 public interface TgmBotApiChat {
@@ -58,4 +61,18 @@ public interface TgmBotApiChat {
 		private final Object replyMarkup;
 	}
 
+	AshResultGist answerInlineQuery(@NonNull final AnswerInlineQueryParams params);
+
+	@Builder
+	final class AnswerInlineQueryParams {
+
+		@SerializedName("inline_query_id")
+		@NonNull private final Long inlineQueryId;
+
+		@SerializedName("results")
+		@NonNull private final ArrayList<InlineQueryResultCachedSticker> results;
+
+		@SerializedName("cache_time")
+		private Long cacheTime = null;
+	}
 }

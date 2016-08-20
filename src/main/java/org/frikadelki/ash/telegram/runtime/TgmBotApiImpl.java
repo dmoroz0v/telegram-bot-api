@@ -28,6 +28,11 @@ final class TgmBotApiImpl implements TgmBotApi {
 		public AshResultGist sendMessage(@NonNull final SendMessageParams params) {
 			return runtime.query("sendMessage", params, Void.class);
 		}
+
+		@Override
+		public AshResultGist answerInlineQuery(@NonNull final AnswerInlineQueryParams params) {
+			return runtime.query("answerInlineQuery", params, Void.class);
+		}
 	};
 
 	@Getter
